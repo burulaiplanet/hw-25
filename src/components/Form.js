@@ -41,7 +41,10 @@ const  submitHandler=(event)=>{
 	dispatch(spinnerActions.spinnerHandler())
 	
 	localStorage.setItem('value',JSON.stringify(store2))
-	
+	setInputData({
+		gmailValue: '',
+		passwordValue: '',
+	})
 }
 
 
@@ -51,11 +54,11 @@ const  submitHandler=(event)=>{
 		<form  onSubmit={submitHandler}>
 			<div >
 				<label>Email</label>
-				<input type='email'  onChange={inputHandler} name='gmailValue'/>
+				<input type='email'  onChange={inputHandler} name='gmailValue' value={inputData.gmailValue}/>
 			</div>
 			<div>
 				<label>Password</label>
-				<input type='password' onChange={inputHandler}  	name='passwordValue'/>
+				<input type='password' onChange={inputHandler}  	name='passwordValue'  value={inputData.passwordValue}/>
 			</div>
 			<button disabled={!formIsvalid} >Login</button>
 
